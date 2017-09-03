@@ -1,5 +1,5 @@
-// src/go/elist.go   2017-8-30   Alan U. Kennington.
-// $Id: elist.go 46541 2017-08-29 15:55:20Z akenning $
+// src/go/elist.go   2017-9-3   Alan U. Kennington.
+// $Id: elist.go 46554 2017-09-02 08:03:53Z akenning $
 // Singly linked stack for error message traceback.
 // Using version go1.1.2.
 /*-------------------------------------------------------------------------
@@ -15,10 +15,10 @@ Pushf
 -------------------------------------------------------------------------*/
 
 /*
-The "elist" package implements the error-message-stack class "Elist", which
+The "elist" package implements the error-message-stack class "Elist" which
 implements the "error" interface.
 
-An Elist permits multiple errors messages to be pushed onto a single
+An Elist permits multiple error messages to be pushed onto a single
 error-message-stack.
 Usage example:
     func function0() error {
@@ -64,9 +64,10 @@ import "fmt"
 //=============================================================================
 
 /*
-Elist implements the "error" interface with additional error-message-stack
-functions. This permits the chaining of error messages to allow calling
-functions to print a trace-back of a sequence of errors.
+Elist adds error-message-stack functions to the standard "error" interface. This
+permits the chaining of error messages to allow calling functions to print a
+trace-back of a sequence of errors instead of just the error message of the last
+function which exits.
 */
 type Elist struct {
     //------------------//
