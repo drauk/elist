@@ -1,5 +1,5 @@
-// src/go/elist.go   2017-9-3   Alan U. Kennington.
-// $Id: elist.go 46554 2017-09-02 08:03:53Z akenning $
+// src/go/elist.go   2017-9-6   Alan U. Kennington.
+// $Id: elist.go 46556 2017-09-03 13:47:00Z akenning $
 // Singly linked stack for error message traceback.
 // Using version go1.1.2.
 /*-------------------------------------------------------------------------
@@ -15,11 +15,11 @@ Pushf
 -------------------------------------------------------------------------*/
 
 /*
-The "elist" package implements the error-message-stack class "Elist" which
-implements the "error" interface.
+The "elist" Go-package implements an error-message-stack class "Elist", which
+implements the standard "error" interface.
 
-An Elist permits multiple error messages to be pushed onto a single
-error-message-stack.
+An Elist permits chaining of multiple error messages by pushing them onto a
+single error-message-stack.
 Usage example:
     func function0() error {
         var E error = function1();
