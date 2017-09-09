@@ -1,2 +1,2 @@
 # elist
-Go error-message-stack functions implementing error interface
+Error-message-stack functions implementing the standard Go error interface.
