@@ -1,5 +1,5 @@
-// src/go/elist.go   2017-9-6   Alan U. Kennington.
-// $Id: elist.go 46556 2017-09-03 13:47:00Z akenning $
+// src/go/elist.go   2017-9-9   Alan U. Kennington.
+// $Id: elist.go 46584 2017-09-09 02:22:08Z akenning $
 // Singly linked stack for error message traceback.
 // Using version go1.1.2.
 /*-------------------------------------------------------------------------
@@ -20,6 +20,20 @@ implements the standard "error" interface.
 
 An Elist permits chaining of multiple error messages by pushing them onto a
 single error-message-stack.
+    type Elist struct {
+        next    *Elist;         // Next node in a singly linked stack.
+        value   interface{};    // The payload of the error node.
+    }
+The value-field is either a "string" or an "error", and this "error" may be any
+struct which implements the standard "error" interface. The purpose of the
+"error" option here is to permit non-Elist errors to be chained into an Elist
+stack.
+
+The next-field optionally points to the "Elist" structure which was returned by
+a function-call which prompted the construction of this "Elist" structure. Thus
+the next-field refers to an error indication which is chronologically prior this
+error indication.
+
 Usage example:
     func function0() error {
         var E error = function1();
@@ -64,10 +78,15 @@ import "fmt"
 //=============================================================================
 
 /*
-Elist adds error-message-stack functions to the standard "error" interface. This
-permits the chaining of error messages to allow calling functions to print a
-trace-back of a sequence of errors instead of just the error message of the last
-function which exits.
+Elist adds error-message-stack functions to the standard "error" interface. In
+other words, "Elist" is a derived class of the standard class "error".
+    type Elist struct {
+        next    *Elist;         // Next node in a singly linked stack.
+        value   interface{};    // The payload of the error node.
+    }
+The next-field permits the chaining of error messages so that calling functions
+can print a trace-back of a sequence of errors instead of just the error message
+of the last function which exits with an error status.
 */
 type Elist struct {
     //------------------//
