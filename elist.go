@@ -1,7 +1,7 @@
-// src/go/elist.go   2017-9-9   Alan U. Kennington.
+// src/go/elist.go   2017-9-13   Alan U. Kennington.
 // $Id: elist.go 46584 2017-09-09 02:22:08Z akenning $
-// Singly linked stack for error message traceback.
-// Using version go1.1.2.
+// Error-message-stack class for error-message traceback.
+// Using Go version go1.1.2.
 /*-------------------------------------------------------------------------
 Functions in this package.
 
