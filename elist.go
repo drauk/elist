@@ -1,5 +1,5 @@
 // src/go/elist.go   2017-9-13   Alan U. Kennington.
-// $Id: elist.go 46584 2017-09-09 02:22:08Z akenning $
+// $Id: src/go/elist.go c788650745 2017-09-12 17:13:22Z Alan U. Kennington $
 // Error-message-stack class for error-message traceback.
 // Using Go version go1.1.2.
 /*-------------------------------------------------------------------------
